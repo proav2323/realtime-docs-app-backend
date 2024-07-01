@@ -16,7 +16,7 @@ io.on("connection", (socket) => {
   socket.on("textChange", (data) => {
     socket.to(data.room).emit("recieveText", data.text);
     console.log("done");
-    console.log(scoket.rooms);
+    console.log(socket.rooms);
   });
 
   socket.on("joinRoom", (room) => {
