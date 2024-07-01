@@ -13,8 +13,8 @@ const io = new Server(httpServer, {
 });
 
 io.on("connection", (socket) => {
-  socket.on("textChange", (room, text) => {
-    socket.to(room).emit("recieveText", text);
+  socket.on("textChange", (data) => {
+    socket.to(data.room).emit("recieveText", data.text);
   });
 
   socket.on("joinRoom", (room) => {
