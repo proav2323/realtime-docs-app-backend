@@ -6,7 +6,11 @@ import cors from "cors";
 const app = express();
 app.use(cors());
 const httpServer = createServer(app);
-const io = new Server(httpServer, {});
+const io = new Server(httpServer, {
+  cors: {
+    origin: "*",
+  },
+});
 
 io.on("connection", (socket) => {
   socket.on("textChange", (room, text) => {
